@@ -26,3 +26,7 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
   }
   
+  .email-link {
+    text-decoration: underline;
+    color: var(--color-email-link);
+  }

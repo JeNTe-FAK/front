@@ -6,6 +6,10 @@
     --color-beige: #f5e6d3;
     --color-white: #ffffff;
     --color-black: #000000;
+
+    --color-links: #ffffff;
+    --color-links-hover: #f5e6d3;
+    --color-email-link: #EF5699;
   
     /* Fonts */
     --font-main: 'Roboto', sans-serif;
