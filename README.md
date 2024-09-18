@@ -1,14 +1,20 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# JenteFAK Frontend
+
+This project was created with [Create React App](https://github.com/facebook/create-react-app). You can run this app in development mode using `npm`, or deploy it using Docker as a containerized production app.
+
+---
+
+## Getting Started with Create React App
+
+### Available Scripts
 
 In the project directory, you can run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
+Runs the app in development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
@@ -24,47 +30,126 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
+The build is minified, and the filenames include the hashes.\
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Docker Setup
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This section explains how to set up Docker and run the JenteFAK frontend application as a Docker container.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Prerequisites
 
-## Learn More
+Make sure Docker is installed on your system:
+- [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+- [Docker for macOS](https://docs.docker.com/docker-for-mac/install/)
+- [Docker for Linux](https://docs.docker.com/engine/install/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Verify Docker is installed by running:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+docker --version
+```
 
-### Code Splitting
+### Step 1: Clone the Repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Clone the JenteFAK frontend repository to your local machine:
 
-### Analyzing the Bundle Size
+```bash
+git clone https://github.com/your-username/jentefak-frontend.git
+cd jentefak-frontend
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Step 2: Build the Docker Image
 
-### Making a Progressive Web App
+Once you have the repository cloned, build the Docker image for the frontend using the provided `Dockerfile`:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+docker build -t jentefak-frontend:latest .
+```
 
-### Advanced Configuration
+This will build the Docker image for production, using a multi-stage build to first create the React app and then serve it using Nginx.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### Step 3: Run the Docker Container
 
-### Deployment
+After building the Docker image, run the container:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+docker run -p 3000:80 jentefak-frontend:latest
+```
 
-### `npm run build` fails to minify
+This command maps port `3000` on your local machine to port `80` inside the Docker container, where Nginx is serving the app.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Step 4: Access the Application
+
+Open your web browser and navigate to:
+
+```
+http://localhost:3000
+```
+
+You should see the JenteFAK frontend running.
+
+### Step 5: Stop the Docker Container
+
+To stop the container, either press `CTRL + C` in the terminal where the container is running or stop it using the following command:
+
+1. Get the container ID:
+   ```bash
+   docker ps
+   ```
+
+2. Stop the container:
+   ```bash
+   docker stop <container-id>
+   ```
+
+### Optional: Push the Docker Image to Docker Hub
+
+To share your Docker image via Docker Hub, follow these steps:
+
+1. **Log in to Docker Hub**:
+   ```bash
+   docker login
+   ```
+
+2. **Tag the Docker image**:
+   Replace `your-dockerhub-username` with your Docker Hub username:
+   ```bash
+   docker tag jentefak-frontend:latest your-dockerhub-username/jentefak-frontend
+   ```
+
+3. **Push the image**:
+   ```bash
+   docker push your-dockerhub-username/jentefak-frontend
+   ```
+
+---
+
+## Common Docker Commands
+
+- **List running containers**:
+  ```bash
+  docker ps
+  ```
+
+- **Stop a running container**:
+  ```bash
+  docker stop <container-id>
+  ```
+
+- **Remove a container**:
+  ```bash
+  docker rm <container-id>
+  ```
+
+- **Remove an image**:
+  ```bash
+  docker rmi <image-id>
+  ```
+
+---
+
