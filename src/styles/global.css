@@ -1,0 +1,28 @@
+body {
+    margin: 0;
+    font-family: var(--font-main);
+    font-size: var(--text-body);
+    color: var(--color-black);
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1 {
+    font-size: var(--text-h1);
+    font-weight: bold;
+  }
+  
+  h2 {
+    font-size: var(--text-h2);
+    font-weight: bold;
+  }
+  
+  .small-text {
+    font-size: var(--text-small);
+  }
+  
+  code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  }
+  

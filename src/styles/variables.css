@@ -1,0 +1,25 @@
+:root {
+    /* Colors */
+    --color-purple: #422D84;
+    --color-pink: #EF5699;
+    --color-turquoise: #84CEBC;
+    --color-beige: #f5e6d3;
+    --color-white: #ffffff;
+    --color-black: #000000;
+  
+    /* Fonts */
+    --font-main: 'Roboto', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+  
+    /* Text Sizes */
+    --text-h1: 2.5rem;
+    --text-h2: 2rem;
+    --text-body: 1rem;
+    --text-small: 0.875rem;
+  
+    /* Other settings */
+    --border-radius: 8px;
+    --transition-speed: 0.3s;
+    --logo-spin-duration: 20s;
+  }
+  

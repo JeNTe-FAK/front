@@ -1,0 +1,5 @@
+/* Importing all CSS files */
+@import url('./variables.css');
+@import url('./global.css');
+@import url('./app.css');
+@import url('./welcomePage.css');
