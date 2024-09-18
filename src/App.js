@@ -1,12 +1,12 @@
-import "./App.css";
+import "./styles/main.css";
 import ImageGallery from "./components/ImageGallery";
+import WelcomePage from "./components/WelcomPage";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <ImageGallery imageName="mainLogoWithName" />
-        <p>Velkommen til jeNTe-FAK!!</p>
+        <WelcomePage/>
       </header>
     </div>
   );
