@@ -56,10 +56,16 @@ docker --version
 
 ### Step 1: Clone the Repository
 
-Clone the JenteFAK frontend repository to your local machine:
+Clone the JenteFAK frontend repository to your local machine using https:
 
 ```bash
-git clone https://github.com/your-username/jentefak-frontend.git
+git clone git@github.com:JeNTe-FAK/front.git
+cd jentefak-frontend
+```
+
+or by using SSH
+```bash
+git clone https://github.com/JeNTe-FAK/front.git
 cd jentefak-frontend
 ```
 
